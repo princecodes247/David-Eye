@@ -383,3 +383,9 @@ button {
     border-radius: 10px;
   }
 }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
