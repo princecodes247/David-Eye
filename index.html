@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>David's Eye Challenge</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+    </style>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <script defer src="main.js"></script>
     <header>Davids Eye</header>
     <main>
       <section class="screen">
@@ -26,36 +31,44 @@
         </div>
       </section>
       <section class="controls">
+        <label for="follow-mouse">
+          <input type="checkbox" name="" id="follow-mouse" />
+          <p>Follow Mouse</p>
+        </label>
         <div id="feats">
-          <div class="styles">
-            <button class="style">Style</button>
-            <button class="style">Style</button>
-            <button class="style">Style</button>
-            <button class="style">Style</button>
+          <div class="feat-set styles">
+            <h3>Style</h3>
+            <button class="style" data-value="normal">Normal</button>
+            <button class="style" data-value="sage">Frog Sage</button>
+            <button class="style" data-value="beast">Beast</button>
           </div>
-          <div class="shapes">
+          <!-- <div class="feat-set shapes">
+            <h3>Shape</h3>
             <button class="shape">Shape</button>
             <button class="shape">Shape</button>
             <button class="shape">Shape</button>
             <button class="shape">Shape</button>
-          </div>
-          <div class="colors">
-            <button class="color">Red</button>
-            <button class="color">Red</button>
-            <button class="color">Red</button>
-            <button class="color">Red</button>
+          </div> -->
+          <div class="feat-set colors">
+            <h3>Iris Color</h3>
+            <button class="color" data-value="red">Red</button>
+            <button class="color" data-value="yellow">Yellow</button>
+            <button class="color" data-value="green">Green</button>
+            <button class="color" data-value="brown">Brown</button>
+            <button class="color" data-value="purple">Purple</button>
           </div>
         </div>
+        <h3>Controls</h3>
         <div id="pos-controls">
-          <button>Top Left</button>
-          <button>Top</button>
-          <button>Top Right</button>
-          <button>Left</button>
-          <button>Center</button>
-          <button>Right</button>
-          <button>Bottom Left</button>
-          <button>Bottom Center</button>
-          <button>Bottom Right</button>
+          <button data-value="tl">Top Left</button>
+          <button data-value="t">Top</button>
+          <button data-value="tr">Top Right</button>
+          <button data-value="l">Left</button>
+          <button data-value="c">Center</button>
+          <button data-value="r">Right</button>
+          <button data-value="bl">Bottom Left</button>
+          <button data-value="b">Bottom</button>
+          <button data-value="br">Bottom Right</button>
         </div>
       </section>
     </main>

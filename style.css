@@ -4,15 +4,41 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --iris-brown: #634e34;
+  --iris-blue: #2e536f;
+  --iris-green: #3d671d;
+  --iris-yellow: #ffd920;
+  --iris-red: #b63233;
+}
+body {
+  font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); */
+  background-image: linear-gradient(to top, #5f72bd 0%, #9b23ea 100%);
 }
 
 header {
-  height: 8vh;
+  height: 10vh;
+  font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #00000011;
+  font-size: 1.8em;
+}
+
+main {
+  padding: 5%;
+  font-family: "Open Sans", sans-serif;
 }
 
 section {
-  height: 50vh;
+  min-height: 50vh;
+  margin: 0 5%;
 }
 
 section.screen {
@@ -21,11 +47,13 @@ section.screen {
   display: flex;
   position: relative;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #ffe0bd;
+  border-radius: 5px;
 }
 
 section.screen .eyes {
@@ -34,59 +62,324 @@ section.screen .eyes {
   display: flex;
   position: relative;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 400px;
+
+  transition: all 1s ease;
 }
 
 section.screen .eyes .eye {
   position: relative;
   height: 150px;
   width: 150px;
-  background-color: #999999;
+  background-color: #fff;
   border-radius: 0 150px 0 125px;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  -webkit-box-shadow: inset 1px 1px 5px 2px #0007;
+  box-shadow: inset 1px 1px 5px 2px #0007;
+  transition: all 1s ease;
 }
 
 section.screen .eyes .eye .cornea {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  position: absolute;
+  height: 120px;
+  width: 200px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotate(45deg) perspective(4000px);
+  transform: rotate(45deg) perspective(4000px);
+  transition: all 1s ease;
 }
 
-section.screen .eyes .eye .cornea .iris {
+section.screen .eyes.sage {
+  overflow: visible;
+  width: 550px;
+}
+
+section.screen .eyes.sage .eye {
+  border-radius: 0 100px 0 85px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  width: 250px;
+  height: 130px;
+}
+
+section.screen .eyes.sage .eye.right {
+  border-radius: 100px 0 85px 0;
+}
+
+section.screen .eyes.sage .eye .cornea {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+section.screen .eyes.sage .eye .cornea .iris {
+  --iris-color: var(--iris-yellow);
+}
+
+section.screen .eyes.sage .eye .cornea .iris .pupil {
+  height: 20px;
+  border-radius: 10px;
+}
+
+section.screen .eyes.beast {
+  overflow: visible;
+  width: 550px;
+}
+
+section.screen .eyes.beast .eye {
+  border-radius: 0 200px 0 200px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  width: 250px;
+  height: 130px;
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
+}
+
+section.screen .eyes.beast .eye.right {
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  border-radius: 200px 0 200px 0;
+}
+
+section.screen .eyes.beast .eye.right .cornea {
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
+}
+
+section.screen .eyes.beast .eye .cornea {
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+}
+
+section.screen .eyes.beast .eye .cornea .iris {
+  --iris-color: var(--iris-green);
+}
+
+section.screen .eyes.beast .eye .cornea .iris .pupil {
+  width: 35px;
+  height: 35px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 0 100px;
+}
+
+.iris {
   position: absolute;
   top: 50%;
   left: 50%;
   height: 95px;
   width: 95px;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border-radius: 100px;
-  background-color: aqua;
+  --iris-color: var(--iris-blue);
+  background-color: var(--iris-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transform-origin: center;
+  transform-origin: center;
   -webkit-box-shadow: inset 0 0 5px 4px #11111166;
-          box-shadow: inset 0 0 5px 4px #11111166;
+  box-shadow: inset 0 0 5px 4px #11111166;
+  transition: transform 0.5s ease-in-out, background-color 0.6s ease;
 }
 
-section.screen .eyes .eye .cornea .iris .pupil {
-  height: 50px;
-  width: 50px;
-  background-color: black;
+.iris .pupil {
+  height: 40px;
+  width: 40px;
+  background-color: #111111dd;
   border-radius: 100px;
   -webkit-box-shadow: 0 0 5px 6px #eeeeeecc;
-          box-shadow: 0 0 5px 6px #eeeeeecc;
+  box-shadow: 0 0 5px 6px #eeeeeecc;
+  transition: all 0.5s ease;
 }
-/*# sourceMappingURL=style.css.map */
+
+.feat-set {
+  min-height: 50px;
+  margin-bottom: 10px;
+}
+
+.feat-set button {
+  min-width: 80px;
+  padding: 10px;
+}
+
+.tl {
+  -webkit-transform: translate(-78%, -66%) rotateY(-26.6deg) rotateX(18.2deg);
+  transform: translate(-78%, -66%) rotateY(-26.6deg) rotateX(18.2deg);
+}
+
+.t {
+  -webkit-transform: translate(-46%, -79%) rotateY(-4.199deg) rotateX(27.3deg);
+  transform: translate(-46%, -79%) rotateY(-4.199deg) rotateX(27.3deg);
+}
+
+.tr {
+  -webkit-transform: translate(-5%, -71%) rotateY(24.5deg) rotateX(21.7deg);
+  transform: translate(-5%, -71%) rotateY(24.5deg) rotateX(21.7deg);
+}
+
+.l {
+  -webkit-transform: translate(-78%, -45%) rotateY(-26.6deg) rotateX(3.5deg);
+  transform: translate(-78%, -45%) rotateY(-26.6deg) rotateX(3.5deg);
+}
+
+.c {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.r {
+  -webkit-transform: translate(-19%, -45%) rotateY(14.7deg) rotateX(3.5deg);
+  transform: translate(-19%, -45%) rotateY(14.7deg) rotateX(3.5deg);
+}
+
+.bl {
+  -webkit-transform: translate(-78%, -23%) rotateY(-25.9deg) rotateX(-11.9deg);
+  transform: translate(-78%, -23%) rotateY(-25.9deg) rotateX(-11.9deg);
+}
+
+.b {
+  -webkit-transform: translate(-47%, -16%) rotateY(-4.9deg) rotateX(-16.8deg);
+  transform: translate(-47%, -16%) rotateY(-4.9deg) rotateX(-16.8deg);
+}
+
+.br {
+  -webkit-transform: translate(-18%, -25%) rotateY(15.399deg) rotateX(-10.5deg);
+  transform: translate(-18%, -25%) rotateY(15.399deg) rotateX(-10.5deg);
+}
+
+.eye .cornea .iris.mouse {
+  -webkit-transform: translate(var(--mouse-pos-x), var(--mouse-pos-y))
+    rotateY(var(--iris-rot-y)) rotateX(var(--iris-rot-x));
+  transform: translate(var(--mouse-pos-x), var(--mouse-pos-y))
+    rotateY(var(--iris-rot-y)) rotateX(var(--iris-rot-x));
+  transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1),
+    background-color 0.6s ease;
+}
+
+.eye .cornea .iris.custom-color {
+  background-color: var(--iris-custom-color);
+}
+
+#pos-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.feat-set button {
+  margin-bottom: 5px;
+}
+#pos-controls button,
+.feat-set button {
+  padding: 10px 15px;
+}
+
+.controls label {
+  margin: 10px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+button {
+  border: none;
+  background-color: #ffd920;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 500px) {
+  section {
+    min-height: 50vh;
+    margin: 0;
+  }
+  section.screen .eyes {
+    width: 260px;
+  }
+  section.screen .eyes .eye {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 0 100px 0 75px;
+  }
+
+  section.screen .eyes .eye .cornea {
+    position: absolute;
+    height: 100px;
+    width: 150px;
+  }
+
+  .iris {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 75px;
+    width: 75px;
+  }
+
+  .iris .pupil {
+    height: 40px;
+    width: 40px;
+    background-color: #111111dd;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 0 5px 6px #eeeeeecc;
+    box-shadow: 0 0 5px 6px #eeeeeecc;
+    transition: all 0.5s ease;
+  }
+  section.screen .eyes.beast {
+    width: 550px;
+  }
+
+  section.screen .eyes.beast .eye,
+  section.screen .eyes.sage .eye {
+    border-radius: 0 150px 0 150px;
+    width: 150px;
+    height: 80px;
+  }
+
+  section.screen .eyes.sage .eye {
+    border-radius: 0 70px 0 55px;
+  }
+  section.screen .eyes.sage .eye.right {
+    border-radius: 70px 0 55px 0;
+  }
+
+  section.screen .eyes.beast .eye .cornea .iris,
+  section.screen .eyes.sage .eye .cornea .iris {
+    width: 72px;
+    height: 72px;
+  }
+
+  section.screen .eyes.beast .eye .cornea .iris .pupil,
+  section.screen .eyes.beast .eye .cornea .iris .pupil {
+    width: 30px;
+    height: 30px;
+  }
+
+  section.screen .eyes.sage .eye .cornea .iris .pupil {
+    height: 20px;
+    border-radius: 10px;
+  }
+}
