@@ -89,8 +89,8 @@ section.screen .eyes .eye {
   -ms-flex-align: center;
   align-items: center;
   padding: 0;
-  -webkit-box-shadow: inset 1px 1px 5px 2px #0007;
-  box-shadow: inset 1px 1px 5px 2px #0007;
+  -webkit-box-shadow: inset 1px 1px 5px 2px #0002;
+  box-shadow: inset 1px 1px 5px 2px #0002;
   transition: all 1s ease;
 }
 
